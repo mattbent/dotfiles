@@ -7,7 +7,8 @@ Plugin 'scrooloose/nerdTree'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'YankRing.vim'
 Plugin 'tpope/vim-fugitive'
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'FuzzyFinder'
@@ -41,13 +42,9 @@ set wrapscan   		"continue searching at top when hitting bottom
 
 set showcmd 			" Show (partial) command in status line.
 set showmatch           " Show matching brackets.
-set mat=2
-set showmode
 
 map ; :
 
-set complete+=k
-set completeopt+=longest
 set backspace=indent,eol,start
 set history=50
 
@@ -63,17 +60,16 @@ set textwidth=0
 set wrap
 
 set cursorline                  " Highlight current line
-set cursorcolumn                " Highlight current column
 set wildmenu
 set autoread                    " Automatically read new changes to a file
-
+set laststatus=2
 " A buffer becomes hidden when it is abandoned
 set hid
 
 " Tab completion
 " will insert tab at beginning of line,
 " will use completion if not at beginning
-set wildmode=list:longest,list:full
+set wildmenu
 set complete=.,w,t
 function! InsertTabWrapper()
     let col = col('.') - 1
@@ -102,4 +98,4 @@ if !exists('g:airline_symbols')
 endif
 let g:airline_symbols.space = "\ua0"
 cmap w!! w !sudo tee % >/dev/null
-map <C-n> :NERDTreeToggle<CR>
+map <C-t> :NERDTreeToggle<CR>
